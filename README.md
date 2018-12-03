@@ -129,3 +129,60 @@ I'll paste the content from the index.html page I'll just update the
 h1 to say that this is the about page and then what we'll look at next is how
 we can actually link to these different pages using by different methods of
 using the href to determine the path.
+
+# Routing
+ 
+## What is it?
+
+Routing
+
+
+## What does it do?
+
+Allows us to swich between views using URLs
+
+
+## How do you use it?
+
+By creating routes
+
+LESSON: 
+
+Okay so in order to hook up our views in our templates now what we need to do is
+we need to use what's called routing and routing will allow us to basically route
+to a specific function or a view and I suppose this was called here this
+function here is typically referred to as a view and then this
+decorator on top at the very top here on line six this is the route so our
+application knows that if we go to our domain forward slash then it will use the
+function that has that route so what we can do is we can create additional
+routes so what I'm going to do now is I'm going to create a new view function
+so we're gonna say you have decorator of app.route and then we say forward
+slash about supplies a def about and then I can just return render template
+about.html I'm just going to rename my hello function there to index just to make it a bit more but
+more readable and a bit more correct so instead of them having our hash symbol
+inside of the href's I'm going to update them to forward slash for the home index page and then
+forward slash about for the about page so what I need to do is I need to add those
+changes to both of those pages so inside of the index.html I need to do it on the
+inside of the about.html so once I've done that both those files I can
+just go ahead and refresh and you can see them once we click on the about link
+then we're brought to the about page we can click between the two for a while
+and okay get a feel for how it works there is another way of doing this we
+can what we can do is we can say we can use what's called a template logic and
+the template logic allows us to inside of these curly braces we can say URL
+underscore for and that's a function where it will take a string argument we
+will say index in the first one and these two curly braces here allow, we'll
+say to flasks look I need you to inject some piece of text here the piece of I
+wants is the output of this URL for index so go ahead and we do that again
+for the about page so if you remember earlier we have view functions are named
+index and about and so we pass in the name of the views that we want to call
+and flask will give us tell us what the route for that is and inject it in place
+there I mean do the same then on the about page so you can see if you keep an eye
+on the URL bar there when you're switching between the two the URLs are
+actually updating to the number forward slash index and for slash about for the about page
+and that's just those name function names there so we say URL for the
+specific view if I change mine to say hello now then it will give me an error
+to say they couldn't find a name an endpoint for the index did you mean
+hello instead and then evens go so far as to suggest the name that we should
+have inside the URL there so let's go ahead add another one so add in a
+contact page say app.route and then this is forward slash content and then the
+name of the function would be contact and we just returned another template called render template. And the template that will return will be contact on HTML so I'm gonna copy the code from the index.html file actually I won't just yet I will update the index.html file to include the URL for the contact page so we'll just update that there in the href and then we'll update the content I then I can go ahead once that's done then I'll copy the whole a copy that cross into the about HTML page first and then I'll copy the whole HTML file and I will copy it in to create a new template in templates directory called contact HTML and I will paste all of that code in there and I'll just update the h1 on the page to say contact us okay I still have my error in there because I didn't update save this file and I need to change this back to index,and if I change contact to hello, Flask is actually smart enough to actually know the difference and get an idea of the actual page that it is supposed to render of the details. Suppose app will actually suggest that to you to us when we're trying to get it to work so I'm gonna say it everything back to normal then refresh and we can see now that everything is working.

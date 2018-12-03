@@ -240,6 +240,81 @@ going to copy in my base.html file I'm gonna copy the URL here I'm just
 creating new one that says careers I'm gonna update the URL for we have one for
 careers then we refresh and we can see that our careers I need to update the h1
 so we'll update that say come work with us
-okay if I refresh now you can see now that all of these pages have a nav bar
-End of transcript. Skip to the start.
-View Source Code
+okay if I refresh now you can see now that all of these pages have a nav bar.
+
+# Using A Bootstrap Theme
+
+## What is it?
+
+A bootstrap theme
+
+
+## What does it do?
+
+Allows us to quickly style our website
+
+
+## How do you use it?
+
+We'll download it from Start Bootstrap
+
+
+LESSON:
+
+So now that we have some HTML content in the place what we need to do is we also
+need to actually be able to style our content using CSS so I'm just going to
+go ahead and I going to do Google search for some bootstrap teams so some themes
+that somebody people have already built and startbootstrap.com is usually
+a really good place to go they have a lot load of different pre-built themes
+here we can go in to the team different themes and have a look we can preview
+them before we choose to download them so for example if I click on preview
+here I can preview this new age kind of landing page theme get preview I can go
+into it I can have a scroll through page and get a feel for what it looks like
+but let's go find one that might be more applicable to the to our purposes we're
+not just we don't just have a landing page we have multiple pages on ours so
+this clean blog should work pretty well let's see a preview that friend some
+different pages and yeah that looks like it should be good so what I can do then
+is we'll go in with download that we won't download it actually what we need to
+do is we need to right click on the download button
+so I right click on the download button here and we need to download it to Cloud9 so we
+need the when we right on it we need to click on copy link address this
+way we'll be able to do wget commands to download it to our workspace
+so see us to mkdir called static. And static is a file is the name is usually
+given to the folder that contains CSS JavaScript images and stuff like that so
+let's see okay this command doesn't work it doesn't want to copy it into the static
+directory for us. So what we'll do is just I'll do a, I will cd into my static
+directory so
+let's just clear this up. I'm going to cd into the static directory here and then I'm
+going to run my wget command so I'm going to paste in the URL that I
+copied from the download button and this gives me a file called gh-pages.zip
+and I can just run the command unzip followed by gh-pages.zip on this will
+unzip the gh-pages.zip directory for us so there's only there's not actually
+that many pages in here that we need to use our directories we mostly just need
+the CSS JavaScript we need to vendor files and the images so what I'm going
+to do is I'm just gonna move those out of the start bootstrap-clean-blog-gh-pages
+directory things firstly get the CSS
+and then after that I'm going to get the JavaScript or sorry the images times a
+js after that and then we'll get the vendor files and the vendor files or we
+get the scss and then the vendor files as well so the vendor files are just the
+kind of jQuery bootstrap and all that stuff and we just want to do with dot
+at the end copy that into this directory is one that we're currently
+working in and we can go ahead and once we've done that then we can actually
+remove rm -rf the entire start boot trap directory because our files
+will be moved in from because the necessary directories have been moved
+into the static directory we can we've no need for it anymore and we can also
+get rid of the gh-pages.zip file. As well as we going to do an LS
+something see that the CSS images the JavaScript and all that have been
+loaded into the static directory so inside the head of our base.html file
+then we can just go ahead and we can reference those and we'll use the URL
+for here as well will be slightly different this time around because we're
+targeting a specific file as opposed to a specific view function so the first
+argument that we pass in is just word static and then we pass in the second
+argument this is file name. We were looking for a specific file name here so
+the file name that we're looking for is clean-blog.min.css
+so go ahead and run this now
+see nothing happens I mean inspect element here see what
+happened console not found in blog ah yes so instead of just referencing the
+file name because were referencing the static directory we also need to specify
+css/green-blog so I'm gonna update that now once I refresh my page
+then we can see that this CSS file is now being loaded and these CSS styles are
+being applied.

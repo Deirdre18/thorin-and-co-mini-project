@@ -73,9 +73,7 @@ LESSON:
     mode is not on it won't allow us to change so I can refresh here and it
     doesn't update to hello hello it sticks with hello Flask so this is why
     it's important to have debug equal to true when we're developing our applications
-    
-    
-    
+
 # Rendering HTML Code
  
 ## What is it?
@@ -186,3 +184,62 @@ hello instead and then evens go so far as to suggest the name that we should
 have inside the URL there so let's go ahead add another one so add in a
 contact page say app.route and then this is forward slash content and then the
 name of the function would be contact and we just returned another template called render template. And the template that will return will be contact on HTML so I'm gonna copy the code from the index.html file actually I won't just yet I will update the index.html file to include the URL for the contact page so we'll just update that there in the href and then we'll update the content I then I can go ahead once that's done then I'll copy the whole a copy that cross into the about HTML page first and then I'll copy the whole HTML file and I will copy it in to create a new template in templates directory called contact HTML and I will paste all of that code in there and I'll just update the h1 on the page to say contact us okay I still have my error in there because I didn't update save this file and I need to change this back to index,and if I change contact to hello, Flask is actually smart enough to actually know the difference and get an idea of the actual page that it is supposed to render of the details. Suppose app will actually suggest that to you to us when we're trying to get it to work so I'm gonna say it everything back to normal then refresh and we can see now that everything is working.
+
+# Template Inheritance
+ 
+## What is it?
+
+Template Inheritance
+
+
+## What does it do?
+
+Allows us to inherit code from other templates
+
+
+## How do you use it?
+
+By creating a base template and using {% extends 'base.html' %} in a child template
+
+LESSON:
+
+One of the biggest benefits of using a framework like Flask or Django is that it
+allows us to reuse as much code as possible so in the example here we have
+three pages that all contain pretty much the exact same code which is fine but it
+means that if we add a new link then we have to add it to all of the pages etc
+so what we can do is instead of a template directory I'll just create a
+page called base.html so what I'm gonna do is I'm gonna copy pretty much all of
+my content from my about page and I'm gonna paste that into the base.html
+file I'm going to remove that h1 that we had there earlier and instead I'm going
+to put in a curly brace on a percent symbol and I say block content and then
+go percent symbol and a curly brace and then I'm going to copy that opening
+curly brace percent symbol I'm gonna say end block and then go say a percent sign
+and then a closing curly brace and this defines an area or a block and Flask will
+go all right okay I'm going to need to inject something
+into here so I'm gonna open up my about HTML page and I'm going to remove
+everything except for the h1 this is about
+that's top I'm going to use my templating logic here that says extends and
+then in quotes base.html after that we're going to do the same block content
+that we did inside our base.html file so what will happen now is when flask
+tries to read the about our HTML file I go oh this needs to inherit from this
+needs to inherit from the base.html file and then I need to find a block
+called content and I need to put this h1 inside of that content block so
+we'll do that across all of our pages so for the bit about
+index and contact and once I've done it for all of those pages and they will
+actually all be the exact same as they were put each file has much less content
+much less HTML content because it's all written inside of the basic HTML page
+and then the individual pages themselves get injected into the content into the
+content block so if I create a new route here for careers we can say we call this
+careers I know instead of having to we just returned a simple career template
+and instead of having to update this on several different HTML pages it will I
+just have to add it to the one based on HTML file and then because all of the
+additional pages all of the individual pages are loaded into the basic HTML
+file that change will be available on each page so I was gonna copy this code
+from the index.html I'm gonna paste it into the careers.html file and then
+going to copy in my base.html file I'm gonna copy the URL here I'm just
+creating new one that says careers I'm gonna update the URL for we have one for
+careers then we refresh and we can see that our careers I need to update the h1
+so we'll update that say come work with us
+okay if I refresh now you can see now that all of these pages have a nav bar
+End of transcript. Skip to the start.
+View Source Code

@@ -318,3 +318,123 @@ file name because were referencing the static directory we also need to specify
 css/green-blog so I'm gonna update that now once I refresh my page
 then we can see that this CSS file is now being loaded and these CSS styles are
 being applied.
+
+#  Styling Our Templates
+ 
+## What is it?
+
+Taking the styles of the theme and adding them to our own site
+
+
+## What does it do?
+
+Styles the content on our site
+
+
+## How do you use it?
+
+By using the theme that we got from Start Bootstrap
+
+LESSON:
+
+Now that we have bootstrap theme downloaded we can head over to their
+their repository on github we can actually just start to retrieve a lot of
+the code that we need from here and we can build up our own boilerplate from
+this code so what I'm gonna do is inside of the head element over based on HTML
+and gonna reference the style sheets so there are more style sheets for this
+so we have to reference the bootstrap style sheets we have to
+reference a jQuery and the bootstrap JavaScript files as well so both the
+team blog preference what I'm going to use and it's going to create a reference
+for bootstrap so the path for that is vendor/bootstrap/css/bootstrap.min.css
+so once we have that loaded in then we can, close that off there. The next thing
+that we want to do is we want to we can grab all of this pretty much all of this
+code from the outside of the footer actually we can grab everything inside
+the body really including the nav so we'll get rid of our own nav here for
+the time being but also remove our content blocks there so the first thing
+main thing that we need to do here is okay we can see we have all of that
+there and we need to actually we can move the majority of this into into our
+index.html file and that will allow us to remove kind of a lot of code from
+from the base.html pages we won't be needing all this code on every page but
+for now let's go ahead and I'm going to try referencing these scripts so down at
+the bottom of, just before our closing body tag we're
+just going to copy the source and then I'm gonna pop it inside of the
+static URL for our method so we have our URL there for our jQuery now and I what
+I'm gonna do is I'm gonna copy that entire URL and I'm gonna paste it into
+the next script tag and I just gonna paste in the JavaScript are they
+bootstrap JavaScript reference it was already there and then the clean block
+has its own JavaScript file so I'm going to reference that also okay we want to
+do now last thing now there's an image we wants
+you the images in the static directory so we're just going to use the the
+static URL for instead of the standard image forward slash so go ahead refresh the
+page now and we can see that our code is all loading up and working fine you see
+we have posts there we have it's just some boilerplate content what we can do
+is see this main content here what we can do is we can actually take all of
+this content and we'll move it into the index.html file just so we can use their
+content blocks so everything inside we leave the container div here and then
+we'll take everything inside of that so inside of the container div will just
+create our content block
+so I'll create my block content and then I'll pop in my end block inside the
+container and save that then and then inside of the block content, content
+block in the index.html file I'll paste in all of this code so what we want to do
+the next thing that we need to do now is we need to just need to update our URLs
+in our nav bar so our href's are going to become our URL forwards instead of
+specific HTML files. Just coming to pop that code in there is my closing
+braces create one for the about page and sorry but we'll have contact and careers
+that just hangs up from sample post as well to say contact us and then
+for the last one and it's already said contact but we'll change this to careers
+now so my URL is wrong here so they should be name's not slashes so as
+I saved this file and check it in browser will see those errors there if I
+do a refresh and see yep no URL for that so instead of those slashes that should be index and about contact and careers. So I'm going to go ahead and save that now and now if I do a refresh again we'll see that these all work so I click on these links and it'll bring me
+to the various pages and as because we still have our content block in place it
+still will inject all the content into our pages into our base.html page.
+
+# Making The Design Our Own
+ 
+## What is it?
+
+Styling our site
+
+
+## What does it do?
+
+Customising the theme
+
+## How do you use it?
+
+By modifying the theme to suit our needs
+
+LESSON:
+
+Now that our styles and our CSS files are in place ours styles and our JavaScript
+files are in place what we can do is we can start to make this design our own
+and what I'm gonna do is I'm going to open up Google and go and search for a
+Thorin and company and head to images and I'm gonna find some company pictures
+of Thorin and the company of dwarfs from The Hobbit this looks like a pretty good
+image here so I'm gonna click on the view image link and then I'm going to
+grab the URL from the URL bar there and inside of my notes you add this
+then to the page-header so this will this image will be displayed on all of
+the pages and the website so in the base.html file if I go to my page
+header and them inside there's a style set here for a background image and I'm
+going to update that from the local image to the URL that I just retrieved
+also in the navigation bar here on line 13 there's a href that points to
+index.html so I'm just gonna update this and say URL for index instead and
+instead of saying to start bootstrap I'm going to say Thorin and company I'm
+basically just gonna change the branding of this in several different places here
+right now to reflect my own usage of the site and once that's done then back
+in page header here we have our we have kind of a heading and a subheading so we
+have our h1 this is clean blog and then we have a subheading just a blog theme
+by start bootstrap so I'm gonna turn this into something that's more
+applicable here so I'm gonna say Thorin on company again and then inside of our
+soap heading spine I'm gonna say Thorin on his company of dwarves
+just to, just to found that a bit so once we're done it's going to escape
+this so once it's redundant we can refresh and see now that we have our own image in place our own h1 our own title and it's all looking good one thing I will do now though is
+because I'm using a h1 in my page heading what I'm going to do is I'm
+going to go back over to try out 9 and what I'll do is I will use a switch all
+of our headings and each of our files to h2 so in the back page for example we
+have a h1 that just has about something we're gonna change that to a h2 just for
+consistency and just make it a little bit more semantic so inside the contact
+contact us contact our HTML them as well I'm gonna do the same I'm gonna change
+it from an h2 to h1 and lastly I'll do the same thing in careers ok so I can
+save that now and if I head back to the browser and check this out just do a
+refresh and click on some different pages and we can see though that we have
+our h2 on each of our different pages.

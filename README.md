@@ -438,3 +438,63 @@ it from an h2 to h1 and lastly I'll do the same thing in careers ok so I can
 save that now and if I head back to the browser and check this out just do a
 refresh and click on some different pages and we can see though that we have
 our h2 on each of our different pages.
+
+# Adding In Some Company Data
+
+## What is it?
+
+Data about the company
+
+
+## What does it do?
+
+Gives the user some information on the company
+
+
+## How do you use it?
+
+LESSON:
+
+Okay so now let's start adding some data to our about page so we want to do is
+we're going to create a P element here and basically what I'm going to do on
+this page is I'm gonna give kind of an overview of Thorn and Company and then
+we list each member so what I'm going to do is I'm just going to Google
+Thorin and Company and I found a background here we will be able to pop into
+that P element. I copied that all wrong go back and I'll grab try grab that again okay so I'll copy that background that piece of text on the background and pop that into our P element I'm just going to carriage
+return here it's quite a big chunk of text so we're just for the sake of being able to read all, scroll horizontally so once that's done then I can run this and I'm in the wrong file here in my about.html I think should be good to go now close down this and open it up again there we go
+okay so once we got that running so now I'm gonna head over to the about page as
+we can see that piece of content that we just created so if I click on about
+and we can see now that we have that piece of text under the about h2 so what
+we want to do now is we want to start adding in some content about each kind
+of specific each specific member of the company so we have Thorne we have
+Killy and Philly, Oin, Gloine, Ballin and so on so what I'm going to do is use some
+bootstrap classes here so I go to great new div I'm gonna give this div a two
+classes we're going to give it a class of row and we're going to give it a
+class of featurette then inside of that we're going to create a narrative it's
+just gonna be col it's md-7. Inside of there we're just gonna create a h3 and
+we call put a piece of text in there Thorin Oakenshield and after that then
+we can pop in some text into a p element so this iotr and wiki
+page here we can grab some text about each of the members so I'm going to text
+grab this piece of text here from Thorin's biography and I'll just paste
+that into the P element there once again I will do some carriage returns just to
+just to bring it round so it's not running off the screen
+okay so once I've done that then I can go ahead and save this file and we can
+go ahead now and we can check the yeah the about page we have that text
+there so next thing we want to do is we want to pop in an image so outside of
+so after the after we close off the medium column of file on seven we'll
+create a new one with a five so the 7 will fill up the left hand side and then
+after that we'll have the addition of five row column then to fill up the
+rest of 12 so I'm just going to Google some images of Thorin Oakenshield here and I'll just grab one from the Internet's and I grabbed the source and I'll pop it into my image tag okay so how about there it's going to paste that in if I
+head over to the browser now and do refresh we should see that image in
+there. Doesn't seem to be running it seems to be having an issue okay let's just try that again okay it seems work now and there we go we have our heading we h or h3 our piece of text and our image for Thorin Oakenshield so let's do another
+one of these featurette at rows we'll create some text for someone else I
+think Philly and Killy you're up next so we create our div with classes with class of row and feature it and then this time around we're going to show the image on the left hand side so we'll put our image our col-md5 first and put our image in there and then once we've done that and then we will put inner piece of text or a piece of text for this time we'll display on the right so we have kind of an offset kind of grid going on so okay we have our piece of text on Killy and Philly there let's go grab an image of the two and we'll pop that into our
+source element in our image tag okay we should be able to use this image here
+it's going to paste that in and then outside of that I col-md5 we're going to
+create our col-md7 and this will contain our h3 for Killy Philly will also contain the kind of biography biographical piece for Killy and Philly as well just like above where we have our h3 and our P for Thorin Oakenshield so he's going to head over here and grab a piece of the text and paste that in and then I'm just going to once again just pop some carriages returns in there and go ahead and save that now and if I do refresh them we can see we have Killian and Philly some with the image on the left hand side and the text on the right hand side so one issue with these images is that they're not now taking up the full width space of what I'm going to do is inside of CSS directory what I'm going to do is I'm going to create a new file I'm just gonna call this style.css and then I'm going to open up that file and I'm going to target that image and I'll make it width 100 so what I need to do is to avoid targeting all of the images what I'm gonna do is I'm gonna to save the images inside of the col-md5 element and that will just target those images on the about page and I'm just going to delete this I have an extra gh-pages.zip file I'm just going to delete I'll get rid of it later but for now I'll just pop in this URL here okay so instead of the clean-blog.css then what we want is style.css do refresh them we can see that those images are increasing in size and there we go.
+
+# Challenge - Challenge Hint: 
+
+## Ensure the content is present for all of the following: 
+
+Thorin Oakenshield Kili & Fili Óin Gloin Balin Dwalin Ori Dori Nori Bifur Bofur Bombur Gandalf-->

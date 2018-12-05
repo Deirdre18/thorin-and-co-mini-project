@@ -492,4 +492,160 @@ then is going to have a string representing its name so in the about view that g
 braces followed by two closing curly braces and pop the word page underscore
 title in there instead like I said this could be anything instead of saying page title you could say page heading heading could be any any variable name that you give it so once I pasted it out into the h2's of each of those pages now I can refresh my application and click on that all of the different pages and we'll see that the the, for the most part the headings are just still the same except for careers which used to say come work for us.
 
+# Using For Loops Inside HTML
+ 
+## What is it?
+
+A template tag
+
+## What does it do?
+
+It allows us to perform logic inside of our HTML templates. In this case, it allows us to use a for loop inside of our HTML
+
+## How do you use it?
+
+
+LESSON:
+
+So as I said as I mentioned earlier one of the benefits of using frameworks like
+Flask and Django is that they allow us to reduce the amount repetition
+that we would normally have to do one of the ways it allows us reduce this
+repetition is by using for loops so just sending data to our our templates
+we can also send we can also send lists and we can actually use for loops in our
+templates to iterate over those lists so for example if I head into my run.py
+file now and I in addition to returning the page title I can also
+return a variable called list underscore of underscore numbers you just got me a
+list of numbers so just gonna contained numbers 1 2 & 3
+okay so what I need to do then is I need to open up the about.html page and just
+before the page style I'm just going to use my double curly braces to show the list of
+numbers being rendered on the page so I can go ahead and save that now and I'll
+do a refresh over here and we'll be able to see now that we have our list of
+numbers 1,2 & 3 being rendered on the page inside of their square brackets to note that this is a list what I can do is I can use the same templating tags that we use for the block and the extend
+so we have our opening curly brace followed by a percent sign and this kind of this is
+usually kind of referred to as kind of a template logic tag so this is logical
+performing in the template and we're using specific tags here to
+denote the logic so I'm gonna say for number in list of numbers and then I
+need an end for template tag as well just so that Flask will know where to stop so inside of top for loop I'm just gonna create a number and I'm gonna show the I'm gonna put create paragraph and inject the number into that paragraph as we can see now we have three new paragraphs all containing the number one and then another one containing number two and then the third one containing the number 3 and that's how we can use template logic to iterate over data inside of our HTML code. 
+
+# Reading From A JSON File
+ 
+## What is it?
+
+A JSON file that will contain our data
+ 
+## What does it do?
+
+Allows us to store data in a JSON file
+
+## How do you use it?
+
+By creating a .json file and adding our data to the file
+
+LESSON:
+
+Instead of hard-coding all of our information into the HTML
+template what we can do is we can actually store information in a file so
+I'm going to create a new directory inside my fast directory called data and
+inside of that data directory I'm gonna create a new file called company.JSON
+this is the file that I'm going to use to store all the information about the company so what I'm gonna do is I'm gonna open up that file first thing I do is create an array and then inside of that array when I'm gonna create an array of objects here and the properties that these objects are gonna have we're gonna be
+the name the description and the image stores so the first one first name is
+gonna be Thorin Oakenshield then we're gonna pop in a description
+after that and in order to get that description I'm just going to go into
+the about.html file and copy the description that we already have in
+there and I'm gonna paste this code in and one thing we need to make sure is
+that all of our text is actually on one line otherwise it's not actually
+valid JSON so I'm just going to remove my carriage returns and make sure it's
+all on one line and after that then what we want to do is we want to come at the
+end of this line and then we have our image source I'm missing quotation there
+we go so comment the end line and then we want the image underscore source is the next property and once again I'm just gonna
+grab the image source from the about.html page so I can copy that and I will
+paste that into this file now okay so I can go ahead and I can save my adjacent
+file now and what I can do is I can that run.py file and on line two
+I've imported JSON so import JSON and then on line
+14 I'm going to open up and say with open I'm gonna open data/company.json
+I'm going to import it as read hang on and data is equal to JSON
+data and I'm going to oh sorry that is equal to json.load and I
+need to pass in json_data which I'm going to say open the file as
+json_data and then let that json_data is going to be passed
+into the josn.load function which will take the JSON data and
+create a list of dictionaries I've also just created an empty list just to
+store our data in before opening the file and I've also passed it through as
+company data so company data is equal to data in our render template function
+once I've done that then I can go ahead and open up an about page and inside
+of our double quote double curly braces I will put the company_data
+variable name and then we can see this being rendered inner page and we can see
+that we have the standard square bracket and curly bracket notation here for our
+lists and dictionaries so let's go ahead we can use the standard Python
+notation then so we can say company underscore data and then in square
+brackets use the integer to specify the index and we can also then say the name
+so after we actually index for left with a dictionary so we can specify a key
+then and then we can say with them it will output Thorin Oakenshield that's
+that's the key that's associated with company data at the 0th index and that's the name associate with that dictionary okay so I'm just gonna get rid of this now I'm going to add some more data to the company.json file so I'm gonna create a new object and this is going to be our Killy and Philly object
+so the name is going to be Killy and Philly and then the description and the
+image source then as well I will retrieve from the HTML file but we
+already have one thing to be careful of here is that this subscription has
+some double quotes in so I'm gonna need to get rid of those double quotes and
+replace them with single quotes and I have another set of them here just get rid of those we should be good to go just double-check make sure there's no more. And now I just need to get the image source okay so I'll grab the source attribute there the value for the source attribute from the image element I'll pop that in to the company.json file okay so now inside the about HTML file we'll just do a similar thing here we did with the last time around so we'll just open up our curly our template tag I would say company and then we'll company underscore data and then we'll use a index to retrieve an item from the list we'll use index one this time I'm used index zero last time and index zero is going to be Thorin Oakenshield so the next one this time then should be Killy and Philly and that's how we can read information from a kind of makeshift data store using a JSON file.
+
+# Iterating Over Our JSON Data
+ 
+## What is it?
+
+A for loop to iterate over our JSON data
+
+## What does it do?
+
+It allows us to re-render the same HTML code for each item in a list (or iterable)
+
+## How do you use it?
+
+By passing the data to the template and using the {% for member in company_data %} tag
+
+LESSON:
+
+Now that we've managed to output some of our json data to our HTML template what
+we want to do is we actually just want to iterate over all of that information
+and display all of it I'll render all of it inside the HTML file instead of all of the hard-coded data that we have what I'm going to do is I'm going to create a for loop setting for member in company_data and then basically what I'm going
+to do is I'm going to come to grab theev erything except for the first row and delete it and then I'm just going to write up my end for tag once I've done that I'm going to start removing the information that's in there and start replacing it with template tags so the h3 here we're going to remove this and we're going to use member.name instead in the next, I'm in the next paragraph then what we'll do is we'll do member that description so we can delete all of this in from our within our P elements. There we go and then we can just do member dot description and similarly then we'll do the exact same for the source in our image here so we will say source is member.image_source and then for the alt what we'll do is we'll say instead of a generic placeholder we will say
+image for and then we can pass in member.name okay so we can get rid of our style attribute there we'll come back to that later on when we start dealing we have a style already set for that so we can get rid of it so for the alt will just say picture of member.image_source our member.image_name sorry member.name and now if I do a refresh we can see that we have all of our members of the company still displaying however one has changed is they're all displaying with the name and description on the left and the image on the right so we'll take a look at how to revert that back to our old offset type look in the next video.
+
+#  Using If Statements Inside Our HTML
+ 
+## What is it?
+
+The if template tag
+
+
+## What does it do?
+
+Allows us to use if statements inside our templates
+
+
+## How do you use it?
+
+By using the {% if some_condition %} tag and the closing {% endif %} tag
+
+LESSON:
+
+Now that we've seen how we would iterate over data inside of our templates let's
+how we can use some kind of if statements inside our templates so at
+the moment we have all of our, we almost have a design back in place again only
+all of our texts are now lying down the left and all of our images are right
+whereas previously we had kind of an all set deal with the text on the left and
+then on the right an image on the right hand side and then for the second the
+image is on the left and text was on the right so what we can do inside of our
+template is when were using for loops inside of a Flask template it actually gives us a variable the loop is an object and that object comes with a property of dot index which will tell us which iteration of the loop we're on and as we've seen there we can actually put this inside of our header or inside our h1 and it will number all of the members of the company forest so Thorin being one and Fíli number 2 and 3 then and so on and so forth so what we can do is we can
+actually do some checking on this value to see what we would want to do is we
+want we want to check to see if this value is divisible evenly by zero and so
+what we can do then is we can say if looped.index modulo 2 so this will check to see if we have a remainder or not and then we can close it outside of our call 5 but what we want to do is we want to make sure that there's not a remainder of zero for the first one. So if the loop index is not divisible by two evenly then we will show the text on the left and the image on the right. If I run this now after putting in my end if we will only see 1, 3, 5, 7 so on and so forth what we need to do is we need to pop in and else now to show the image on the left and then the text on the right so what I'm going to do is I'm going to pop in an
+else and you notice that this syntax is very similar to Python actual Python
+code the only real difference here is that we have to specify tabs. We
+can't, we don't have the visual indicator of tabs or in an indentation
+in language we need to specify the end if and end for so once we've
+done that now I'll refresh the page and see that they're all kind of aligned in
+this kind of offset way that we had previously thanks to our if statements
+and the last thing we want to do is the hr the horizontal rule that we have at
+the end we don't want to display at after the very last one so we're going
+to do, we know we have 13 items in our list so what we do is we say if
+loops.index is not equal to 13 then we'll show the hr class this way once we reach the next of 13 we won't be displayed we already have a horizontal rule going the width of the whole page now we've got rid of, we only have them separating each company member now.
 

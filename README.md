@@ -1,3 +1,5 @@
+[Please note text below taken from Tutorial videos (Code Institute)].
+
 # The Flask framework 
 
 is a web-based framework using Python language that began it's life as an April Fool's joke was has since risen to become one of the biggest Python frameworks become the most popular and widely supported Python frameworks within the Python community. 
@@ -372,21 +374,8 @@ is see this main content here what we can do is we can actually take all of
 this content and we'll move it into the index.html file just so we can use their
 content blocks so everything inside we leave the container div here and then
 we'll take everything inside of that so inside of the container div will just
-create our content block
-so I'll create my block content and then I'll pop in my end block inside the
-container and save that then and then inside of the block content, content
-block in the index.html file I'll paste in all of this code so what we want to do
-the next thing that we need to do now is we need to just need to update our URLs
-in our nav bar so our href's are going to become our URL forwards instead of
-specific HTML files. Just coming to pop that code in there is my closing
-braces create one for the about page and sorry but we'll have contact and careers
-that just hangs up from sample post as well to say contact us and then
-for the last one and it's already said contact but we'll change this to careers
-now so my URL is wrong here so they should be name's not slashes so as
-I saved this file and check it in browser will see those errors there if I
-do a refresh and see yep no URL for that so instead of those slashes that should be index and about contact and careers. So I'm going to go ahead and save that now and now if I do a refresh again we'll see that these all work so I click on these links and it'll bring me
-to the various pages and as because we still have our content block in place it
-still will inject all the content into our pages into our base.html page.
+create our content block so I'll create my block content and then I'll pop in my end block inside the container and save that then and then inside of the block content, content block in the index.html file I'll paste in all of this code so what we want to do the next thing that we need to do now is we need to just need to update our URLs in our nav bar so our href's are going to become our URL forwards instead of specific HTML files. Just coming to pop that code in there is my closing braces create one for the about page and sorry but we'll have contact and careers that just hangs up from sample post as well to say contact us and then for the last one and it's already said contact but we'll change this to careers now so my URL is wrong here so they should be name's not slashes so as I saved this file and check it in browser will see those errors there if I
+do a refresh and see yep no URL for that so instead of those slashes that should be index and about contact and careers. So I'm going to go ahead and save that now and now if I do a refresh again we'll see that these all work so I click on these links and it'll bring me to the various pages and as because we still have our content block in place it still will inject all the content into our pages into our base.html page.
 
 # Making The Design Our Own
  
@@ -405,13 +394,7 @@ By modifying the theme to suit our needs
 
 LESSON:
 
-Now that our styles and our CSS files are in place ours styles and our JavaScript
-files are in place what we can do is we can start to make this design our own
-and what I'm gonna do is I'm going to open up Google and go and search for a
-Thorin and company and head to images and I'm gonna find some company pictures
-of Thorin and the company of dwarfs from The Hobbit this looks like a pretty good
-image here so I'm gonna click on the view image link and then I'm going to
-grab the URL from the URL bar there and inside of my notes you add this
+Now that our styles and our CSS files are in place ours styles and our JavaScript files are in place what we can do is we can start to make this design our own and what I'm gonna do is I'm going to open up Google and go and search for a Thorin and company and head to images and I'm gonna find some company pictures of Thorin and the company of dwarfs from The Hobbit this looks like a pretty good image here so I'm gonna click on the view image link and then I'm going to grab the URL from the URL bar there and inside of my notes you add this
 then to the page-header so this will this image will be displayed on all of
 the pages and the website so in the base.html file if I go to my page
 header and them inside there's a style set here for a background image and I'm
@@ -419,25 +402,11 @@ going to update that from the local image to the URL that I just retrieved
 also in the navigation bar here on line 13 there's a href that points to
 index.html so I'm just gonna update this and say URL for index instead and
 instead of saying to start bootstrap I'm going to say Thorin and company I'm
-basically just gonna change the branding of this in several different places here
-right now to reflect my own usage of the site and once that's done then back
-in page header here we have our we have kind of a heading and a subheading so we
-have our h1 this is clean blog and then we have a subheading just a blog theme
-by start bootstrap so I'm gonna turn this into something that's more
+basically just gonna change the branding of this in several different places here right now to reflect my own usage of the site and once that's done then back in page header here we have our we have kind of a heading and a subheading so we have our h1 this is clean blog and then we have a subheading just a blog theme by start bootstrap so I'm gonna turn this into something that's more
 applicable here so I'm gonna say Thorin on company again and then inside of our
 soap heading spine I'm gonna say Thorin on his company of dwarves
 just to, just to found that a bit so once we're done it's going to escape
-this so once it's redundant we can refresh and see now that we have our own image in place our own h1 our own title and it's all looking good one thing I will do now though is
-because I'm using a h1 in my page heading what I'm going to do is I'm
-going to go back over to try out 9 and what I'll do is I will use a switch all
-of our headings and each of our files to h2 so in the back page for example we
-have a h1 that just has about something we're gonna change that to a h2 just for
-consistency and just make it a little bit more semantic so inside the contact
-contact us contact our HTML them as well I'm gonna do the same I'm gonna change
-it from an h2 to h1 and lastly I'll do the same thing in careers ok so I can
-save that now and if I head back to the browser and check this out just do a
-refresh and click on some different pages and we can see though that we have
-our h2 on each of our different pages.
+this so once it's redundant we can refresh and see now that we have our own image in place our own h1 our own title and it's all looking good one thing I will do now though is because I'm using a h1 in my page heading what I'm going to do is I'm going to go back over to try out 9 and what I'll do is I will use a switch all of our headings and each of our files to h2 so in the back page for example we have a h1 that just has about something we're gonna change that to a h2 just for consistency and just make it a little bit more semantic so inside the contact contact us contact our HTML them as well I'm gonna do the same I'm gonna change it from an h2 to h1 and lastly I'll do the same thing in careers ok so I can save that now and if I head back to the browser and check this out just do a refresh and click on some different pages and we can see though that we have our h2 on each of our different pages.
 
 # Adding In Some Company Data
 
@@ -467,9 +436,7 @@ we can see that piece of content that we just created so if I click on about
 and we can see now that we have that piece of text under the about h2 so what
 we want to do now is we want to start adding in some content about each kind
 of specific each specific member of the company so we have Thorne we have
-Killy and Philly, Oin, Gloine, Ballin and so on so what I'm going to do is use some
-bootstrap classes here so I go to great new div I'm gonna give this div a two
-classes we're going to give it a class of row and we're going to give it a
+Killy and Philly, Oin, Gloine, Ballin and so on so what I'm going to do is use some bootstrap classes here so I go to great new div I'm gonna give this div a two classes we're going to give it a class of row and we're going to give it a
 class of featurette then inside of that we're going to create a narrative it's
 just gonna be col it's md-7. Inside of there we're just gonna create a h3 and
 we call put a piece of text in there Thorin Oakenshield and after that then
@@ -497,4 +464,32 @@ create our col-md7 and this will contain our h3 for Killy Philly will also conta
 
 ## Ensure the content is present for all of the following: 
 
-Thorin Oakenshield Kili & Fili Óin Gloin Balin Dwalin Ori Dori Nori Bifur Bofur Bombur Gandalf-->
+Thorin Oakenshield, Kili & Fili, Óin, Gloin, Balin, Dwalin, Ori, Dori, Nori, Bifur, Bofur, Bombur, Gandalf.
+
+# Passing Data From A View To A Template
+ 
+## What is it?
+
+Information that we can provide to a template from the backend
+
+
+## What does it do?
+
+Allows us to generate information inside our view and inject it into a template
+
+
+## How do you use it?
+
+LESSON:
+
+One of the biggest benefits of using frameworks on over a site you generated
+content such as HTML is that we we can actually get the server-side code to
+provide the front-end with certain pieces of data. Inside of the return
+template function here I can actually add in as many additional arguments as I
+want so I'm going to create for each of these pages I'm gonna add in a new
+argument called page title and I can call this whatever I want and each page
+then is going to have a string representing its name so in the about view that going to page title is going to say about contact it's gonna say contact and so forth so once I've done that then I can open up my about.html page and inside my h1 I can get rid of the about and I can actually just pop in two opening curly
+braces followed by two closing curly braces and pop the word page underscore
+title in there instead like I said this could be anything instead of saying page title you could say page heading heading could be any any variable name that you give it so once I pasted it out into the h2's of each of those pages now I can refresh my application and click on that all of the different pages and we'll see that the the, for the most part the headings are just still the same except for careers which used to say come work for us.
+
+

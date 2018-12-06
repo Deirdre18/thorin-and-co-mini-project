@@ -3,11 +3,25 @@
 Thorin Oakenshield Kili & Fili Óin Gloin Balin Dwalin Ori Dori Nori Bifur Bofur Bombur Gandalf-->
 
 {% extends 'base.html' %} {% block content %}
+
+<!--template logic tag. Using template logic to reiterate over data in html-->
+{% for number in list_of_numbers %}
+<p> {{ number }} </p>
+<!--end tag-->
+{% endfor %} 
+
+
 <h2>{{ page_title }}</h2>
 
 <p>The formation of the group grew out of a meeting Gandalf had with Thorin in Bree which kindled Thorin's interest in recapturing his long lost family inheritance. Remembering that he had once known an adventurous Hobbit on his travels in The Shire, Gandalf
     decided to add Bilbo to their company because he knew that stealth and cunning were preferable to force. Gandalf also believed that someone like Bilbo could keep the sometimes prideful and stubborn Dwarves from rash action. The superstitious Dwarves
     also considered thirteen to be an unlucky number, and as Gandalf had planned to leave on other business, welcomed a fourteenth to fill in to their party.</p>
+
+<!--put variable name and can see this is rendered in our page--> 
+
+
+<!--this is how we use info from makeshift data story using data.json file (ie) Index 1 = Kili & Fili-->
+{{ company_data[1]["name"] }}
 
 <div class="row featurette">
     <div class="col-md-7">

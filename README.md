@@ -649,3 +649,44 @@ the end we don't want to display at after the very last one so we're going
 to do, we know we have 13 items in our list so what we do is we say if
 loops.index is not equal to 13 then we'll show the hr class this way once we reach the next of 13 we won't be displayed we already have a horizontal rule going the width of the whole page now we've got rid of, we only have them separating each company member now.
 
+In our previous video, we got our data displaying to screen and iterating through from our JSON file.
+As we said though, it would be nice if we could reverse the order of the images and the text columns for each subsequent line, just as we did in our initial example.
+And we can do this because when we create a for loop using the Jinja templating language, it also creates an object for us called loop.
+And that object loop has a property which is .index.
+And that shows us exactly which iteration of the loop we're on.
+If I just put it in there as an expression and refresh the page, you can see that the first iteration, so number 1, is Thorin, number 2 is Kili and Fili, so on and so forth.
+What we can actually do is take our loop index there and put it into our member.name <h3> tags.
+I'll do that and then put a space just to separate them.
+And so now it gives us a nice numbered list of all of the members of Thorin's company.
+But we can do more than this. We can actually check this value to see where we are in the for loop.
+And what we're going to do is put in an if statement.
+So just like for loops, if statements in our templates go with the curly bracket and % notation because they are logic.
+So inside the row here, I'm going to put {% if loop.index % 2 != 0 %}
+And then beneath this, before the closing <div> tag for my row, I'm just going to put {% end if $} in there.
+So just before the closing div tag for my row because, again, just like a for loop, the templating language needs to know where our if statement ends.
+So what this will do is check the loop index, divide it by 2, and see if it divides cleanly.
+If it doesn't, then it will display the HTML here.
+So let's save that and just see the effect that that has on our page at the moment.
+So when I refresh now, I have 1, 3, 5, 7, 9
+So I have all of the odd numbers now.
+So we want all of the odd rows to display with the text on the left and the photograph on the right.
+Now what I can do is put in an else statement, and this will take care of the even rows.
+And I'm just going to copy the code from above.
+So {% else %} we display the image first.
+And then, followed by our col-md-7 here, which contains our loop.index, our member.name, and our member.description.
+So if it's an odd number, then we display the text first and then the image.
+If it's an even number, we display the image first and then the text.
+Let's refresh that.
+And that's what we see coming up here for each alternate row.
+The photograph is either on the left or the right, and that gives us a much nicer layout.
+One thing, though, that we do have is this horizontal rule at the end, which looks a little bit messy.
+So again, we can use an if statement to take care of that.
+We'll do that by going back to our code.
+And right down at the end here, we're going to enclose our <hr> in an if clause.
+We know that we have 13 elements, so what we're going to do is say: {% if loop.index != 13 $}, then display the horizontal rule.
+And again, we'll put the {% end if %} here so that the templating language knows where our if statement ends.
+Okay, so when you refresh it now, as we can see, the horizontal rule has disappeared, and this looks a lot neater.
+So in this series of videos, we've looked at how to get data from the backend displayed through on the frontend.
+And we've also seen how using features of the templating language can help us to write less HTML by using variables and logic, such as for loops and if statements.
+Next, we're going to have a look at how to create forms and some advanced routing.
+

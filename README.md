@@ -690,3 +690,274 @@ So in this series of videos, we've looked at how to get data from the backend di
 And we've also seen how using features of the templating language can help us to write less HTML by using variables and logic, such as for loops and if statements.
 Next, we're going to have a look at how to create forms and some advanced routing.
 
+# Advanced Routing
+
+## What is it?
+
+Additional routing parameters
+
+## What does it do?
+
+Allows us to create more specific routes
+
+## How do you use it?
+
+By passing part of a route to a function as an argument
+
+LESSON:
+
+Our project is nicely taking shape.
+But what we would like to be able to do is to click on the title or the name of one of the characters and have it bring us to a page that displays more information about them.
+Doing this also allows us to demonstrate some of the advanced routing features of Flask.
+So let's go to our about.html file and add in a link into our <h3> tags where it shows the loop.index and the member.name.
+So we'll create an <a> tag.
+Give it the href="/about/{{ member.url }}"
+We're going to create that member.url value.
+Take out that closing <a> tag, and I just want to put a full-stop after the loop.index number because I think it looks nicer.
+And then I'll put a closing tag here inside my <h3>.
+Okay, I'm going to copy that and go down to the other <h3> for the even numbers and paste it in there.
+As we said, we could have used member.name, but we're going to create a new key and value called member.url.
+Some of the names have spaces in.
+Some of them also have ampersands (&) in.
+And all of them have uppercase characters.
+So we're going to create a new key and value in our company.json file.
+So put a comma after "image_source".
+And then we'll create a new key, "url".
+And I'm just going to give this "thorin".
+So again, we put a comma in after "image_source", put "url": "kili-and-fili"
+Using the magic of technology, we'll go down to the end, where I'm putting "bombur".
+And then finally, a comma after "image_source", and the "url": "Gandalf".
+So each character now just has a URL associated with them that's their name in lowercase.
+I can see now when I go and refresh my page and scroll down, I can click on Thorin's name now because that's a link.
+And it says that the requested URL wasn't found on the server as expected.
+But when I have a look at the address bar, you can see that where we were trained to go to was about/Thorin.
+So it was picking up the URL that we created in our company.json file.
+To get this working then, we need to use some of the advanced routing features in Flask, which means we have to go back to our run.py file and create a new route and view.
+We can't just modify our existing /about route here.
+So I'm going to create a new route decorator: @app.route.("/about/<member_name>")
+And then I'm going to create a new view, which is going to be: about_member
+And that's going to take member_name as an argument.
+So whenever we look at our about URL with something after it, that's going to be passed in to this view.
+So we'll create an empty object, which we're going to use to store our data in later.
+Just as we did in our about view, we're going to open our company.json file for reading and refer to that as json_data.
+We'll then create another variable inside where we pass the data that we've passed through and converted into JSON.
+So data = json.load(json_data)
+And now what we're going to do is iterate through that data array that we've created.
+And we're going to say if obj["url"] == member_name, so that's the variable that we've passed in, then member = object.
+So we can see that those two link, our URL and our member_name have to match.
+And if they do, then we're going to return out this member object so that we can do something with it.
+And just to demonstrate that, we're going to just return some HTML, the same as we did in one of our earlier videos.
+I'm going to return "<h1>" + member["name"] + "</ h1>"
+Okay, so we'll save that, go back, and now when I click on Thorin, it should bring up his name, which it does.
+Go back again, click on Kili and Fili, see what we get, and it brings up their names.
+And so on for Oin and so forth.
+So that's helpful, but it would be better if we had a template that was displaying this information.
+So let's go ahead and create one of those now.
+In my templates directory, I'm going to create a new file, and I'm going to call that member.html and then open it up for editing.
+Member.html is going to be very similar to all of the other template files that we have.
+For instance, it's going to extend our base.hmtl template.
+So let's pass in that directive at the top here: {% extends "base.html" %}
+So we're going to get all that styling that we have in our other templates.
+Then we're going to provide our block content.
+So again, {% block content %}
+And I'll put the {% end block %} here as well before I start adding my HTML.
+Okay, now that my block is created, I can create a Bootstrap row and then a Bootstrap col-md-5.
+And in there, we're going to display the image.
+So <img src= "{{ member.image_source }}"
+And this time, I'm going to also supply an alt attribute.
+I should really supply these with all my images.
+And the alt attribute is going to say "Profile image for {{ member.name }}"
+There's my <img> tag.
+Underneath that then, we'll put a heading, which will be a <h2>.
+We're going to give that the class of col-md-7 so that it doesn't go the full way across the screen.
+And in there, we'll put {{ member.name }}
+And then finally, outside of our col-md-5 and our row, I'm gonna create a col-md-12 that goes the full width of the screen.
+And in there, we'll put our {{ member.description }}
+So now that our HTML file is created to provide basic information about the member when we click on them, all we need to do is go back into our run.py and instead of returning this HTML, then we're going to return render_template.
+The first argument is going to be the member.html template.
+And then we're going to say member = member.
+So that's how we refer to it inside our template.
+Okay, we can save that.
+And now when I refresh my page and click on Thorin, as we can see, it's extended the base.html template, and I have this basic information about Thorin.
+If I do the same for Kili and Fili, you can see that the same thing happens.
+So we've created a makeshift database using JSON files, and we've also seen some very advanced routing features in Flask.
+We can take a variable, pass that in to our URL, and then do something based on that variable.
+That's the last we're going to look at our About page for now.
+We're going to move on now to our Contact page and have a look at how to process forms using Flask.
+
+# Creating A Form In A Template
+ 
+## What is it?
+
+A HTML form
+
+## What does it do?
+
+Allows us to submit data to the server
+
+## How do you use it?
+
+LESSON:
+
+Our previous videos have focused on getting our About page up and running.
+Now, though, we want to give some attention to our Contact page, which is still looking a little bit light on content.
+What we'd like to have here is a contact form.
+And we can get that by going back to the Clean Blog Github repository and clicking on the contact.hmtl file.
+And as you can see, as I scroll down here, when we get to main content, we have a form.
+And that form is expecting input of name, email address, phone number, and then a message of our choice.
+So we're going to take this code and copy and paste it into our own project.
+We can start copying just below the container.
+We don't need to copy the container definition because we already have that in our base.hmtl template.
+Then we can go to contacts.html, and, after the page title, I'm just going to put in a couple of blank lines and paste that in.
+And now you can see here from the comment at the top, that it's expecting to be running on a server with PHP.
+We're not going to use PHP to process our contact form.
+We're going to use Python, but it works in a very similar way.
+And then if you're using a PC, you can press ctrl + shift + B, or, if you're using a Mac, command + shift + B just to format our code nicely.
+So now that that's done, we can save our file, go back, and refresh our contact page.
+And here we see our Contact form in all its glory.
+So let's try filling it in.
+So I'm going to fill in my name, Matt Rudge, my email address, not my real phone number, and a message.
+And what click on send, then nothing happens.
+The form just resets itself.
+If you've completed our interactive frontend development course, you'll remember that we linked up a contact form with an SDK so that we could send emails when somebody had completed the form.
+We're not going to do that in this lesson.
+What we want to do in this lesson is just make sure that we can handle the data that's been passed to the backend from our template.
+And we're going to see how to do that in our next video.
+
+# POST
+ 
+## What is it?
+
+The POST request method
+
+## What does it do?
+
+Allows us to post infomation to our server
+
+## How do you use it?
+
+By specifying the POST method on the form element and handling it on the backend.
+
+LESSON:
+
+In our last video, we got our very nice-looking form attached to our site, but it doesn't actually do anything.
+In this video, we're going to wire that up to the backend.
+To get our form working, though, actually requires some changes first to the HTML of the form itself.
+By default, the Clean Blog template expects us to be using their JavaScript file to do the form handling for us.
+We're not going to do that. We're going to use a HTTP method, and we're going to do it with Python.
+So to our form we're going to supply method = "POST".
+Remember that we've looked at HTTP methods before.
+The GET method is used for retrieving data from the server, and the POST method is used for sending data to the server.
+What we also need to do is give each of our inputs a name.
+We're just going to wrap the lines here to make it a bit easier to see.
+So first of all, I have my "Name" input.
+And I'm going to give that name= "name".
+Then in our "Email Address" input, I'm going to give that name= "email".
+The reason we're doing this is that this is how Python will refer to the different fields in our form.
+So we need to give them all names.
+Name= "phone" for our "Phone Number", and name= "message" in our message text area.
+Now that all that's done, we can refresh our form, try to fill it out again, and see what happens.
+So I'm just going to use the auto prompts here to fill this information in.
+And I'm going to put in just "Test message" here and click on send.
+And now we get Error: Method Not Allowed.
+And if I just pull down the top, so you can see the top of the tab here, we can see that it's a 405 method not allowed error, so this is an error from our server.
+The reason is that by default, all of Flask's views will handle a GET request, but when we need to start handling anything outside of that, such as a POST, or the other methods DELETE or PUT, then we need to explicitly state that our route can accept that.
+So we'll go down to our contact route here, and we're going to put in another argument.
+We'll put a comma after /contact.
+And then methods=[GET and POST]. I'm going to say that the methods that are allowed are GET and POST.
+Okay, so now that's done, let's go back again to our contact form, try filling it out again, send, and see what happens.
+Well, now we don't get the error.
+But again, we also don't get anything back.
+So how do we know that this actually worked?
+Well, one of the ways is by having a look at the debugger here.
+So if I pull that up, we can see there, my previous request of posting our contact form resulted in a 405 error, which was that the method was not allowed.
+This time when we did it, though, we got a 200 response code.
+And as we remember before, the 200 response code means "that's okay, everything worked".
+So now, then, we can actually do something with that.
+The first thing we need to do is import the request library from Flask.
+And request is going to handle things like finding out what method we used, and also it will contain our form object when we've posted it.
+So now we'll just put in an if statement here, and we're going to use the method of the request object.
+So if requests.method == "POST":
+Then we're just going to print in the debugger window "Hello! Is there anybody there?"
+So now that's done, let's save that and try submitting our form again.
+So we'll go back to our contact form.
+Again, I'm going to use the autofill for name, email address, phone number, put the word "Message", and send.
+Again, our form is empty now, but when we go back, we can actually see that the message "Hello! Is there anybody there?" has been printed out in the debugger because we were using the request method of POST.
+The request object has a lot more things attached to it as well.
+When we submit a form, it actually has the form object attached.
+So remember that we gave each of our fields names.
+Let's see what happens if we print out request.form.
+So again, we'll save that, go back to our contact form, and autofill information yet again.
+And this time, my message will be "Here is my message to you..."
+Click on send.
+And now in our immediate window, you can see we have this thing called an ImmutableMultiDictionary.
+But there it is.
+We have the data that came through from our form: our phone number, message, name, and email address, and a status code of 200, so it worked.
+Now because this is a dictionary, we can actually use a standard Python method of accessing the keys for that dictionary.
+So if I do print(request.form["name"], let's see what happens.
+We'll go back to the form again, and for one last time, we'll do the autofill information and another message.
+Send.
+And when we check our immediate window again, now we can see that my name, Matt Rudge, has printed out because we've accessed that key, and it's printed out the value.
+For now, I'm just going to leave it at request.form.
+So that's how we can access a form's data from the backend of our site.
+As we said, we're not going to be sending emails in this video.
+But in our next video, we'll have a look at how to provide feedback to the user.
+
+# Providing Feedback To The User
+ 
+## What is it?
+
+The flash function
+
+What does it do?
+
+## Allows us to provide users with feedback
+
+How do you use it?
+
+## By using the flash function!
+
+LESSON:
+
+In our previous video, we got our form up and working.
+So now that we have information coming in from our form, and we can do stuff with it on the backend, now what we want to do is display some feedback to the user.
+And to do that, we're going to import a function from Flask called Flash.
+Often, we want to display a non-permanent message to the user, something that only stays until we refresh the page or go to a different one.
+These are called flashed messages in Flask.
+And we want to display a flashed message when our visitor submits the contact form.
+To use flashed messages, we need to create a secret key because Flask cryptographically signs all of the messages for security.
+This might sound complicated, but really all we need to do is provide a secret key that Flask can use to sign the messages.
+Generally, in production, we'd keep the secret key private.
+And we'll look at how to do that in a future unit.
+To use it after we instantiate our app, we need to say app.secret_key =
+And then provide a random string that Flask can use for signing.
+I'm just going to use 'some_secret'.
+Secret keys are generally used for security, but we're going to go into more detail about these in future units as we said.
+Now here, instead of a print statement, I'm going to call the Flash() function.
+Let's say: ("Thanks {}, we have received your message!")
+And then use the .format() method to pass in the request.form["name"] field.
+Now that that's done, all we need to do is update our template so that it can retrieve the flashed messages.
+To do that, we're going to create a with block.
+So I'm going to use {% with messages = get_flashed_messages() %}
+So get_flashed_messages() will return any of the messages that we've created using the Flash() function on the backend and store that in a variable called messages.
+Now we're going to say that if there are messages, I'm just going to close off my if statement here, and my with statement with an {% endif %} and an {% endwith %}.
+So if we have successfully returned messages from our get_flashed_messages() function, then we're going to create some HTML.
+We'll give that a class so that we can style it later.
+And then what we're going to do inside our <ul> is iterate through each of the messages because it's possible for us to create more than one.
+So we'll create a for block that says {% for message in messages %}.
+And I'll close that off with an {% end for %}.
+And then in my for block, I'm going to say <li>{{ message }}</li>.
+So this will display each individual message that we leave.
+Now if we refresh our form, again I'll fill in Aaron's name, email address, and a random string as a phone number and a message.
+Click on send, and we can see here now that as a list item, our flashed message is displayed: Thanks Aaron Sinnott, we have received your message!
+Now of course, we probably would want to provide more styling for that and make it look a lot nicer.
+But that's the basics of how to get flashed messages working with Flask.
+In this section then, we've seen how to do advanced routing in Flask, how to create a form, and how to retrieve that information and do something with it on the backend.
+Now our project is almost complete.
+The only thing left to do is to deploy it so that it can be seen on the internet at large.
+We'll do that in our next series of videos.
+
+Next, we're going to have a look at how to create forms and some advanced routing.
+  
+  
+  

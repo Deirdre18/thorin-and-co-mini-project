@@ -1,5 +1,143 @@
 [Please note text below taken from Tutorial videos (Code Institute)].
 
+[Below are tutorials taken from Code Institute on Flask Framework]
+
+# What is Jinja?
+
+Jinja2 is a modern and designer-friendly templating language for Python, modelled after Django’s templates. It is fast, widely used and secure with the optional sandboxed template execution environment:
+
+<title>{% block title %}{% endblock %}</title>
+<ul>
+{% for user in users %}
+  <li><a href="{{ user.url }}">{{ user.username }}</a></li>
+{% endfor %}
+</ul>
+Features:
+
+sandboxed execution
+powerful automatic HTML escaping system for XSS prevention
+template inheritance
+compiles down to the optimal python code just in time
+optional ahead-of-time template compilation
+easy to debug. Line numbers of exceptions directly point to the correct line in the template.
+configurable syntax
+Jinja2 Documentation
+Introduction
+Prerequisites
+Installation
+Basic API Usage
+Experimental Python 3 Support
+API
+Basics
+Unicode
+High Level API
+Autoescaping
+Notes on Identifiers
+Undefined Types
+The Context
+Loaders
+Bytecode Cache
+Async Support
+Policies
+Utilities
+Exceptions
+Custom Filters
+Evaluation Context
+Custom Tests
+The Global Namespace
+Low Level API
+The Meta API
+Sandbox
+API
+Operator Intercepting
+Native Python Types
+Examples
+API
+Template Designer Documentation
+Synopsis
+Variables
+Filters
+Tests
+Comments
+Whitespace Control
+Escaping
+Line Statements
+Template Inheritance
+HTML Escaping
+List of Control Structures
+Import Context Behavior
+Expressions
+List of Builtin Filters
+List of Builtin Tests
+List of Global Functions
+Extensions
+Autoescape Overrides
+Extensions
+Adding Extensions
+i18n Extension
+Expression Statement
+Loop Controls
+With Statement
+Autoescape Extension
+Writing Extensions
+Integration
+Babel Integration
+Pylons
+TextMate
+Vim
+Switching from other Template Engines
+Jinja1
+Django
+Mako
+Tips and Tricks
+Null-Master Fallback
+Alternating Rows
+Highlighting Active Menu Items
+Accessing the parent Loop
+Additional Information
+Frequently Asked Questions
+Why is it called Jinja?
+How fast is it?
+How Compatible is Jinja2 with Django?
+Isn’t it a terrible idea to put Logic into Templates?
+Why is Autoescaping not the Default?
+Why is the Context immutable?
+My tracebacks look weird. What’s happening?
+Why is there no Python 2.3/2.4/2.5/3.1/3.2 support?
+My Macros are overridden by something
+Jinja Changelog
+Version 2.10
+Version 2.9.6
+Version 2.9.5
+Version 2.9.4
+Version 2.9.3
+Version 2.9.2
+Version 2.9.1
+Version 2.9
+Version 2.8.1
+Version 2.8
+Version 2.7.3
+Version 2.7.2
+Version 2.7.1
+Version 2.7
+Version 2.6
+Version 2.5.5
+Version 2.5.4
+Version 2.5.3
+Version 2.5.2
+Version 2.5.1
+Version 2.5
+Version 2.4.1
+Version 2.4
+Version 2.3.1
+Version 2.3
+Version 2.2.1
+Version 2.2
+Version 2.1.1
+Version 2.1
+Version 2.0
+Version 2.0rc1
+
 # The Flask framework 
 
 is a web-based framework using Python language that began it's life as an April Fool's joke was has since risen to become one of the biggest Python frameworks become the most popular and widely supported Python frameworks within the Python community. 

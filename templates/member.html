@@ -1,0 +1,26 @@
+{# So let's pass in that directive at the top here: {% extends "base.html" %}. Then we're going to provide our block content. So again, {% block content %} #}
+
+{% extends 'base.html' %} {% block content %}
+
+
+{# Okay, now that my block is created, I can create a Bootstrap row and then a Bootstrap col-md-5.
+And in there, we're going to display the image. So "img src={{ member.image_source }}"and this time, I'm going to also supply an alt attribute.  And the alt attribute is going to say "Profile image for {{ member.name }}" #}
+
+<div class="row">
+    <div class="col-md-5">
+        <img src="{{ member.image_source }}" alt="Profile image for {{member.name}}" />
+{#Underneath that then, we'll put a heading, which will be a <h2>.
+We're going to give that the class of col-md-7 so that it doesn't go the full way across the screen.
+And in there, we'll put {{ member.name }}#}
+        <h2 class="col-md-7">{{ member.name }}</h2>
+    </div>
+</div>
+
+{#And then finally, outside of our col-md-5 and our row, I'm gonna create a col-md-12 that goes the full width of the screen. And in there, we'll put our {{ member.description }}#}
+<div class="col-md-12">
+    <p>{{ member.description }}</p>
+</div>
+
+
+{#--And I'll put the {% end block %} here as well before I start adding my HTML.#}
+{% endblock %}

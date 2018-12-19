@@ -10,6 +10,8 @@
         {% if loop.index % 2 != 0 %}
             <div class="row featurette">
                 <div class="col-md-7">
+                    
+                    <!--For odd numbers: Advanced routing features of Flask. Let's go to our about.html file and add a link into our <h3> tags where it shows the loop.index and the member.name. So we'll create an <a> tag. Give it the href="/about/{{ member.url }}" and We're going to create that member.url value.-->
                     <h3><a href="/about/{{ member.url }}">{{ loop.index }}. {{ member.name }}</a></h3>
                     <p>{{ member.description }}</p>
                 </div>
@@ -23,6 +25,7 @@
                     <img class="featurette-image img-responsive" src="{{ member.image_source }}" alt="Picture of {{ member.name }}">
                 </div>
                 <div class="col-md-7">
+                    <!--Adding advanced features of Flask for even numbers.-->
                     <h3><a href="/about/{{ member.url }}">{{ loop.index }}. {{ member.name }}</a></h3>
                     <p>{{ member.description }}</p>
                 </div>

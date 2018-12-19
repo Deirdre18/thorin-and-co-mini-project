@@ -4,6 +4,21 @@
 
 # What is Jinja?
 
+Commenting out in Jinja2 (Template Designer Documentation):-
+
+http://jinja.pocoo.org/docs/2.10/templates/#comments
+
+(Stack Overflow):-
+https://stackoverflow.com/questions/16275877/comments-not-working-in-jinja2
+
+Explanation of Jinja taken from Quora:-
+
+https://www.quora.com/What-are-the-main-differences-between-Jinja2-and-Django-and-why-would-you-use-one-over-the-other
+
+Jinja2 is a templating library that can be used to simplify the process of generating HTML for Python web apps. Django, on the other hand, is a full-fledged MVC framework, which means that it contains libraries for things like database interactions, routing, and caching. Django also includes its own templating library, which works a bit differently than Jinja2. So, the functionality provided by Jinja2 is simply a piece of the functionality that's provided to you by Django. You can actually use Jinja2 to write templates for a Django web application, but it's probably more common to use Jinja2 with more minimalist Python frameworks like Flask (A Python Microframework).
+
+Other explanation of Jinja:-
+
 Jinja2 is a modern and designer-friendly templating language for Python, modelled after Django’s templates. It is fast, widely used and secure with the optional sandboxed template execution environment:
 
 <title>{% block title %}{% endblock %}</title>

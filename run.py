@@ -2,9 +2,18 @@
 import os
 import json
 #On debugger, we can see that 200 status means success and all is ok. So now we import request library from flask. Request is going to handle things like finding out what method we used, and also it will contain our form object when we've posted it.
-from flask import Flask, render_template, request
+
+# Giving feedback to user.
+#Often, we want to display a non-permanent message to the user, something that only stays until we refresh the page or go to a different one. These are called flashed messages in Flask. And we want to display a flashed message when our visitor submits the contact form. To use flashed messages, we need to create a secret key because Flask cryptographically signs all of the messages for security. This might sound complicated, but really all we need to do is provide a secret key that Flask can use to sign the messages. Generally, in production, we'd keep the secret key private. And we'll look at how to do that in a future unit.
+
+from flask import Flask, render_template, request, flash
 
 app = Flask(__name__)
+
+#Often, we want to display a non-permanent message to the user, something that only stays until we refresh the page or go to a different one. These are called flashed messages in Flask. And we want to display a flashed message when our visitor submits the contact form. To use flashed messages, we need to create a secret key because Flask cryptographically signs all of the messages for security. This might sound complicated, but really all we need to do is provide a secret key that Flask can use to sign the messages. Generally, in production, we'd keep the secret key private. And we'll look at how to do that in a future unit.
+
+#To use it after we initiate our app, we use following:-
+app.secret_key = "some_secret"
 
 
 @app.route('/')
@@ -66,11 +75,17 @@ def contact():
     
    # Now because this is a dictionary, we can actually use a standard Python method of accessing the keys for that dictionary. So if I do print(request.form["name"], let's see what happens. We'll go back to the form again, and for one last time, we'll do the autofill information and another message. Send. And when we check our immediate window again, now we can see that my name, Matt Rudge, has printed out because we've accessed that key, and it's printed out the value.
 
+    # blanked out as repeated below using flash message.
+    #if request.method =="POST":
+     #   print (request.form["name"])
+    # return render_template("contact.html", page_title="Contact")
+    
     if request.method =="POST":
-        print (request.form["name"])
+        #And then provide a random string that Flask can use for signing. I'm just going to use 'some_secret'. Secret keys are generally used for security, but we're going to go into more detail about these in future units as we said. Now here, instead of a print statement, I'm going to call the Flash() function. Let's say: ("Thanks {}, we have received your message!") And then use the .format() method to pass in the request.form["name"] field. Now that that's done, all we need to do is update our template so that it can retrieve the flashed messages. To do that, we're going to create a with block in our contact.html.
+        flash ("Thanks {}, we have received your message!".format(request.form["name"]))
+        
     return render_template("contact.html", page_title="Contact")
     
-
 @app.route('/careers')
 def careers():
     return render_template("careers.html", page_title="Careers")

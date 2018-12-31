@@ -3,6 +3,18 @@
 
 <div class="row">
     <div class="col-lg-8 col-md-10 mx-auto">
+        <!--creating with block for flash messages. Any messages we created using flash function on backend will be returned in variable called messages.-->
+        
+         {% with messages = get_flashed_messages() %} {% if messages %}
+        <ul class="flashes">
+            <!--what we're going to do is iterate through the messages and create a for block and in this for block, say <li>{{message}}</li> to display each message that we leave. When we run it, you can see on top of contact page the message "thanks, {} we've received your message" is displayed.-->
+            {% for message in messages %}
+            
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        <!--closing off with and if statement-->
+        {% endif %} {% endwith %}
 
         <p>Want to get in touch? Fill out the form below to send me a message and I will get back to you as soon as possible!</p>
 <!--In our last video, we got our very nice-looking form attached to our site, but it doesn't actually do anything. In this video, we're going to wire that up to the backend. To get our form working, though, actually requires some changes first to the HTML of the form itself. By default, the Clean Blog template expects us to be using their JavaScript file to do the form handling for us. We're not going to do that. We're going to use a HTTP method, and we're going to do it with Python. So to our form we're going to supply method = "POST".  Remember that we've looked at HTTP methods before. The GET method is used for retrieving data from the server, and the POST method is used for sending data to the server. What we also need to do is give each of our inputs a name.-->

@@ -1062,13 +1062,13 @@ But in our next video, we'll have a look at how to provide feedback to the user.
 
 The flash function
 
-What does it do?
+## What does it do?
 
-## Allows us to provide users with feedback
+Allows us to provide users with feedback
 
-How do you use it?
+## How do you use it?
 
-## By using the flash function!
+By using the flash function!
 
 LESSON:
 
@@ -1110,6 +1110,115 @@ Now our project is almost complete.
 The only thing left to do is to deploy it so that it can be seen on the internet at large.
 We'll do that in our next series of videos.
 
+  
+# Signing Up To Heroku
 
-  
-  
+## What is it?
+
+Heroku is a deployment platform
+
+## What does it do?
+
+Allows us to deploy our code to a server for all the world to see!
+
+## How do you use it?
+
+The first thing we need to do is create an account!
+
+LESSON:
+In our previous videos, we focused on building our web app for Thorin & Company.
+Now we're going to have a look at how we can deploy this to a server so that other people can view it out on the Internet.
+Now, in previous modules of this course, we've deployed our projects using GitHub pages.
+But this time, we're going to use a host called Heroku.
+So why are we using a different hosting provider this time?
+Well, it's because GitHub pages only allows us to host static websites.
+We can't host a Python project on GitHub pages.
+There are a number of free hosting services that allow you to host a Python project, but the one we've chosen is Heroku.
+And you're going to use Heroku to deploy the rest of your milestone projects for the course.
+So in a web browser, let's open a new tab and head over to Heroku.com.
+And we're going to be presented with a page where we can log in or sign up.
+So let's click on "sign up" for a new account.
+We'll fill out the form.
+I'm going to use the name, again, of our senior product developer, Aaron Sinnott.
+So we need to provide a name, an email address, the company name is optional, our country is Ireland, and we're going to choose Python as our primary development language.
+We then have to pass a CAPTCHA.
+And then click on create free account.
+Heroku will now send us a confirmation email.
+So we'll check our email here.
+And we're asked to confirm our account on Heroku.
+If we haven't got the email, then check in the spam folder or contact Heroku.
+So we'll click on confirm our email, and we'll be prompted to set a password because, you'll remember, we didn't have to set a password in our signup form.
+And that's it.
+We'll click here to proceed, and then Heroku loads our app dashboard.
+And in our next video, we'll see how to use the dashboard and how to start deploying our project.
+
+# Creating A New Heroku App
+
+## What is it?
+
+The heroku apps command
+
+## What does it do?
+
+Creates a new app on Heroku
+
+## How do you use it?
+
+By creating a new app on the Heroku dashboard
+
+LESSON:
+In our previous video, we signed up to Heroku, which is the service we're going to use to host our app.
+When we've created our password and logged in, we're presented with the Heroku dashboard.
+And from here, we can click on any of the languages that are presented, which will bring us to the Heroku dev center.
+The dev center contains getting started information, reference material, and tutorials.
+But I'm just going to go back and click on the create new app button.
+We then have to give our app a name, which I'm going to call thorin-and-company.
+I'm going to use hyphens instead of spaces.
+And I'll set my region to Europe.
+Bear in mind that the name that we provide has to be unique.
+So once that's done, we come to a new dashboard here.
+And we can see that we can use a command-line interface with Heroku, and we have many different options.
+What we're going to do is use the Heroku command-line interface.
+So in our next video, we're going to see how to use the CLI in Cloud9.
+
+# The Heroku Toolbelt
+ 
+## What is it?
+
+The Heroku Toolbelt
+
+## What does it do?
+
+Allows us to us Heroku functionlity from the CLI
+
+## How do you use it?
+
+Firstly, we need to log from the CLI and then we'll heroku commands to access different pieces of functionality
+
+LESSON:
+In our previous video, we created our new app.
+And now we're going to have a look at the Heroku command-line interface, or what's often called the Heroku toolbelt.
+So what we need to do is head back over to Cloud9 and open up a new terminal window.
+And in the terminal, I'm just going to type the word heroku.
+Now that should give us some output giving a list of different commands.
+And what this tells us is that Heroku is installed in this workspace.
+In fact, all Cloud9 workspaces come pre-installed with Heroku, so we don't have to install it.
+So I can type heroku login, and this will allow us to log into the account we just created.
+So I'm going to type in my email and my password.
+And it says that I'm now logged in.
+So the first command that I'm going to try is heroku apps.
+This will give us a list of the apps that we've created.
+So here we have thorin-and-company with my typo.
+So what I want to do is rename this app so that it's spelled correctly.
+To do that, I need to type heroku apps: rename and the name that I want to give it.
+So now I want to spell thorin-and-company properly.
+I also need to specify the app that I'm working on: - -app thorin-and-compnay
+And that will give us some output to tell us that this has now been renamed.
+When I do heroku apps again, now I can see that thorin-and-company is listed and spelled correctly.
+Now, every Heroku app comes with its own Git URL and its own URL that will be used to access our website.
+So if I copy the link here, the Heroku .com link, and paste that into a browser window, then you can see that we actually have an app running.
+This is the default Heroku app, so this will be displayed for every new app that we create.
+So now that the name is spelled properly, and we've had a brief introduction to using the Heroku toolbelt, what we need to do now is start moving our code onto the server in order to get it running.
+We're going to have a look at how we can do that starting with our next video.
+   
+   

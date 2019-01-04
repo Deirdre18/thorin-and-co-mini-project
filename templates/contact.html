@@ -3,7 +3,7 @@
 
 <div class="row">
     <div class="col-lg-8 col-md-10 mx-auto">
-        <!--creating with block for flash messages. Any messages we created using flash function on backend will be returned in variable called messages.-->
+        <!--creating with block for flash messages using with and if block. Any messages we created using flash function on backend will be returned in variable called messages.-->
         
          {% with messages = get_flashed_messages() %} {% if messages %}
         <ul class="flashes">

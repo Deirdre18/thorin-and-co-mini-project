@@ -1220,5 +1220,164 @@ So if I copy the link here, the Heroku .com link, and paste that into a browser 
 This is the default Heroku app, so this will be displayed for every new app that we create.
 So now that the name is spelled properly, and we've had a brief introduction to using the Heroku toolbelt, what we need to do now is start moving our code onto the server in order to get it running.
 We're going to have a look at how we can do that starting with our next video.
+
+# Pushing To Heroku
+ 
+## What is it?
+
+Our Heroku deployment
+## What does it do?
+
+Pushes our code to the Heroku server
+
+## How do you use it?
+
+By adding a new git remote that points to the server and pushing to that remote
+
+LESSON:
+In our previous videos, we've created our app, and we've seen that it is actually running on Heroku.
+So now let's have a think about what we need to do to move our code from Cloud9 over to our new Heroku server.
+Deploying to Heroku is similar to deploying to GitHub pages.
+We can just push our code to the Git URL that Heroku provides.
+We can also link a Github repository to Heroku to deploy automatically from GitHub.
+But in this video, we're just going to push directly.
+There are four things needed in order to push our code to Heroku.
+Firstly, we needed to have created a Heroku app, which is what we did in our previous couple of videos.
+Secondly, we need to link our local Git repository to Heroku, which is what we're going to do in this video.
+Thirdly, we're going to need to create a requirements.txt file, which contains a list of our dependencies.
+We discussed this in core Python, you may remember, and we're going to do that in our next video.
+And finally, we need to create a Procfile, which is a special kind of file that tells Heroku how to run our project, and we'll do that in the final video of this section.
+In this video, then, we're going to link our local Git repository to Heroku.
+In order to do that, we need to go back to Cloud9 into our terminal window, and we're going to run git status.
+And that will tell me that I haven't created a Git repository yet.
+So let's do git init to initialize an empty repository.
+Git add . to add all of the files to the staging area.
+And then get commit -m "Initial deployment"
+Now if I run git remote -v to give me verbose output about the remotes that I have, then at the moment, I don't get any output because I haven't linked any remotes.
+When we go back to my Heroku dashboard, I can see that there are different ways that I can create a remote using Heroku.
+Well, what we can just do is use the URL that Heroku gave us and create it the same as we would if we were adding to GitHub.
+On my settings page, then, we can see that I have a Heroku Git URL.
+And this is the same URL that we saw when we renamed our app.
+The only difference is that in the Heroku dashboard, it's still using the old data before I renamed the app.
+As we can see there, it still has the typo in the name.
+So if I just refresh my page to get the latest data, I'll get a 404 error at first because it's looking for the page with the typo.
+So I'm going to update my URL to the correct one with company spelled correctly.
+And now I'm going to just copy my Heroku Git URL here.
+Okay, so go back to my Cloud9.
+And I'm just going to type clear here to clear up my terminal a little bit to make it easier to see.
+And now I need to add my Heroku Git URL as a remote.
+So just paste it in.
+Git remote add
+We're going to refer to this one as Heroku instead of origin.
+And then the Heroku Git URL.
+Now when I run a git remote -v, you can see that it gives me the Heroku Git URL.
+So now I can do git push -u heroku master.
+And it's going to try and push my code up to Heroku.
+When we try that, we get an error because it says that no default language can be detected for this app.
+We know that our language is Python, but, at the moment, Heroku doesn't.
+To fix this, we need to create our requirements.txt file, which will list all of the dependencies needed for this app.
+We'll do that in our next video.
+End of transcript. Skip to the start.
    
    
+# Adding A Requirements.Txt File
+ 
+## What is it?
+
+The requirements.txt file
+
+
+## What does it do?
+
+Keeps track of the dependencies that we've installed for our project
+
+
+## How do you use it?
+
+By using the pip3 freeze --local > requirements.txt command
+
+LESSON:
+In our previous videos, we've completed steps one and two towards deploying our code to Heroku.
+The third step, then, is to create a requirements.txt file.
+As you may remember from Core Python, a requirements.txt file contains a list of the dependencies that our project needs in order to run.
+It's also how Heroku can detect what language we're using.
+And that's the reason why our push failed in the previous video.
+
+So to create a requirements.txt file, let's do sudo pip3 freeze --local > requirements.txt to redirect the output into our requirements.txt file.
+Now we can add that file to the staging area and commit it using the commit message "Add requirements file".
+Now when I have a look at my requirements.txt file, you can see that it contains a list of the dependencies needed, including important ones such as Flask.
+Now if I run git push -u heroku master, we can see that Heroku detects that this is a Python app.
+The reason that they've been able to detect Python this time is because we have a requirements.txt file, which is synonymous with Python.
+So Heroku has checked for that in the root directory.
+And now that they've found it, they've installed Python, and pip installed all of the other requirements, such as Flask, Jinja, Click, and so on.
+But when we go to our URL now, we get an application error.
+The reason for that is that we have to complete our fourth step, which is to create a Procfile.
+We get a warning there telling us that our application is missing that.
+And it explains that it tells Heroku how to run our application.
+In the final video in this section, we'll look at what needs to go in our Procfile and finally get our project deployed to Heroku.
+
+# Adding A Procfile
+ 
+## What is it?
+
+The Procfile
+
+
+## What does it do?
+
+It tells Heroku what to do with the project
+
+## How do you use it?
+
+By adding web: python run.py to the file and including it in our deployment
+
+LESSON:
+We've completed three of the four steps to deploy our project to Heroku.
+So the final thing that we need to do, as mentioned in our previous video, is to create a Procfile.
+A Procfile is a Heroku specific type of file that tells Heroku how to run our project.
+So to create the Procfile, I'm going to redirect the echo command.
+So I'm going to type echo web: python run.py > Procfile
+And what this line does is tells Heroku that it's going to be a web process.
+And the command to run our application is python run.py, which is the Python file we've created.
+When I open this file in the explorer, we can see that that's exactly what it contains.
+So now that's done, I'll go back to my terminal window and do git add Procfile.
+And git commit -m "Add Procfile"
+It is important to note that the Procfile must have a capital P. That is a requirement.
+Now that's done, I can do git push, and that will push our code back up to Heroku.
+As last time, it's detected it as a Python app installing the requirements.
+But notice it also mentions that it's picked up our Procfile, which has declared the type of a web process.
+So it says that it's launching our application.
+Let's go to our URL then and refresh.
+But we're still getting the application error.
+There are a couple of reasons for this.
+But if we go back into Heroku, click on more, and go to view logs, then we can see the main error message that we're getting is that there are no web processes running.
+The reason this is happening is that we're telling it we want to use a web process, but we haven't started any.
+And this is like a watcher that will sit and watch our file that we're running continuously so that if we make any changes, it will restart, and we'll always get the latest version of our app.
+So let's start a web process.
+Back at our command prompt, let's type heroku ps:scale web=1
+And that tells us that our web process is now running.
+The one last thing that we need to do, then, is to set our IP and port environment variables.
+The reason that we're doing this is because we're requiring those environment variables in our run.py file.
+So our IP address needs to be set to 0.0.0.0
+And we're going to set our port to 5000.
+Okay, I never added those.
+I'm just going to view the logs.
+You'll see that it's restarting everything, which is great.
+And now I can just go back into Heroku and say restart all dynos.
+The dyno is the container that's actually running our application.
+Now that that's done, I go back to my URL and refresh it.
+And we can see that our application is now up and running fully functional in the browser.
+We'll click on each of the links, just to test.
+Contact us is working.
+So our page is now fully working, and this is how we deploy to Heroku.
+Remember our four steps.
+The first thing that we need to do is to create our Heroku app.
+The second thing is to link our local Git repository with Heroku.
+The third thing is to create a requirements.txt file, which will install the dependencies for our project and tell Heroku that we're using Python.
+And then the fourth thing is to create a Procfile.
+We've covered an awful lot of ground using Flask.
+We've gone from a very basic Hello World! application to a fully fledged web app.
+Our app has custom routing, template logic, and adjacent data store.
+And then in this section, we've seen how to deploy all of this to Heroku so that it's out on the Internet at large.
+We suggest that you take some time before moving on in order to familiarize yourself with Flask's structure and Heroku's terminology.
+I'll see you in the next unit, which is our Flask chat mini project.

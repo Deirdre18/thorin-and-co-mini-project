@@ -176,11 +176,8 @@ Allows us to build web apps
 First we need to install it!
 LESSON:
 
-    Start of transcript. Skip to the end.
-    In order to get up and running with the flask framework what I'm going to do is I'm
-    going to create a new brand new workspace in cloud 9 I will give it a name of
-    flask and this is going to be using a blank template and then we're
-    going to click on create workspace so what we're going to do throughout this
+
+  In order to get up and running with the flask framework what I'm going to do is I'm going to create a new brand new workspace in cloud 9 I will give it a name of flask and this is going to be using a blank template and then we're going to click on create workspace so what e're going to do throughout this
     this lesson is we're going to just create a simple website that outputs
     some pages and we'll take a look at how you tie those pages together and how we
     can inject content from the server side and pass information back from the
@@ -220,8 +217,7 @@ LESSON:
     brill in our application here or what we can do is we once we have this
     information we can just use click on the Run button up the very top on there on
     cloud nine will give us the URL that's running on so we can see now we're a
-    flask - username
-    .c9users.IO now if I go in and change something some piece of
+    flask - username .c9users.IO now if I go in and change something some piece of
     code we can see that changes so hello flask now if I remove our debug
     statement and stop running code and run the code again now head over to that in
     the browser so I'm gonna click open now if I go change something while debug

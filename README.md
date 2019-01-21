@@ -378,3 +378,4 @@ We've completed three of the four steps to deploy our project to Heroku. So the 
 
 Deployed project (Thorin & Co) [Link to Thorin & Co Project](https://thorin-and-co-2019.herokuapp.com/)
 
+test
